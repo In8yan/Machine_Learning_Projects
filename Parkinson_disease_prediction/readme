@@ -1,0 +1,64 @@
+Parkinson's Disease Prediction 🧠🎤
+
+This repository contains a machine learning project that detects the presence of Parkinson's Disease in individuals using biomedical voice measurements. By analyzing acoustic features extracted from voice recordings, this model can classify whether a patient has Parkinson's disease or is healthy.
+
+📋 Project Overview
+
+Parkinson's disease is a progressive nervous system disorder that affects movement. One of the early signs of the disease is a change in vocal characteristics. This project utilizes the XGBoost (Extreme Gradient Boosting) algorithm to build a highly accurate classification model based on a dataset of vocal features.
+
+🗄️ Dataset
+
+The dataset used in this project (parkinsons_disease_data.csv) consists of a range of biomedical voice measurements from multiple individuals, some of whom have Parkinson's disease.
+
+Features: Includes various acoustic measurements like fundamental frequency (MDVP:Fo, MDVP:Fhi, MDVP:Flo), jitter, shimmer, and NHR (noise-to-harmonic ratio). The patient name column is excluded during training as it is a non-predictive identifier.
+
+Target (status):
+
+1 - Parkinson's Disease positive
+
+0 - Healthy
+
+🛠️ Technologies & Libraries
+
+This project is built using Python and relies on the following key libraries:
+
+NumPy: For efficient numerical computations and array manipulations.
+
+Pandas: For data loading, manipulation, and analysis.
+
+Scikit-Learn:
+
+MinMaxScaler: To normalize the feature data between 0 and 1.
+
+train_test_split: To safely divide the data into training and testing sets.
+
+accuracy_score: To evaluate model performance.
+
+XGBoost: The core gradient boosting library used for building the XGBClassifier model.
+
+🚀 Installation & Setup
+
+To run this project locally, ensure you have Python installed. You can install the required dependencies using pip:
+
+pip install numpy pandas scikit-learn xgboost
+
+
+(Note: If you are running this inside a Jupyter Notebook and encounter a ModuleNotFoundError for xgboost, run %pip install xgboost in a notebook cell and restart your kernel).
+
+🧠 Model Pipeline
+
+Data Loading: The dataset is loaded using Pandas.
+
+Data Preprocessing:
+
+The feature matrix (X) is separated from the target labels (y).
+
+The name column is dropped to prevent data leakage.
+
+Features are scaled using MinMaxScaler to ensure all numerical inputs are on a uniform scale (between -1 and 1 or 0 and 1).
+
+Data Splitting: The data is split into training (typically 80%) and testing (20%) sets.
+
+Training: An XGBClassifier is trained on the scaled training data.
+
+Evaluation: The model makes predictions on the test set, and performance is evaluated using the accuracy score.
